@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>Web Login Service</title>
+    	<link rel="stylesheet" type="text/css" href="index_files/main.css">
+  	</head>
+  	<body>
+    <div class="wrapper">
+      <div class="container">
+        <header>
+          <img src="index_files/jmulogo.png" alt="James Madison University">
+        </header>
+
+        <div class="content" style="padding-bottom: 20px;">
+          <div class="column one" style="margin-right: 18px;">
+            <form id="login-form">
+            
+
+
+                <legend>
+Log in to James Madison University - Canvas
+                </legend>
+
+<p style="font-size:20px;font-weight:bold;">ATTENTION:</p><br>
+<ul>
+<li><p style="font-weight:bold;display:inline;">Duo two-factor authentication is now required</p> for this and many other JMU systems.  See <a href="https://www.jmu.edu/computing/accounts-and-access/services-protected-by-duo.shtml/index.shtml" style="color:blue">here</a> for a complete list.</li>
+<li><p style="font-weight:bold;display:inline;">If you have not yet enrolled with Duo</p>, find instructions <a href="https://www.jmu.edu/computing/accounts-and-access/two-factor-authentication.shtml" style="color:blue">here</a>.  For assistance, contact the IT Help Desk at 540-568-3555, or email helpdesk@jmu.edu</li>
+</ul>
+<br><br>
+
+              <div class="form-element-wrapper">
+                <label for="username">JMU eID</label>
+                <input class="form-element form-field" id="username" name="j_username" type="text" autofocus="">
+              </div>
+
+              <div class="form-element-wrapper">
+                <label for="password">Password</label>
+                <input class="form-element form-field" id="password" name="j_password" type="password" value="">
+              </div>
+
+
+              <div class="form-element-wrapper">
+                <button class="form-element form-button" type="submit" name="_eventId_proceed">Log in</button>
+              </div>
+            </form>
+
+			
+              <img src="index_files/sd-canvas-logo.png" alt="James Madison University - Canvas">
+
+            <p>If you have a JMU eID, please enter it above. If you do not have a JMU eID, please <a href="https://canvas.jmu.edu/login?canvas_login=1"><font color="0000FF">click here</font></a> to use another account.</p><br>
+            <p>Still having trouble? Visit <a href="https://www.lib.jmu.edu/learning-innovations-and-design/"><font color="0000FF">The Learning Innovations &amp; Design Desk</font></a> for help with Canvas.</p>
+
+
+          </div>
+
+<div class="column two" style="max-width: 250px;width: auto;">
+            <ul class="list list-help" style="margin: 0;">
+                <li class="list-help-item">
+<h1 style="border:2px solid #666;background:#ddd;padding:1em;font-size:.9em;">
+<p style="font-size:20px;font-weight:bold;">Protect Your Privacy!</p><br>
+Be sure to log out of this system by completely closing your web browser
+ when finished.  If you do not, someone else could use your web browser 
+to login as you.
+<ul>
+<li>Windows users:  Close all web browser windows.</li>
+<li>Mac users:  Quit your web browser</li>
+</ul>
+</h1>
+</li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+
+      <footer>
+        <div class="container container-footer">
+        <p class="footer-text">For help, contact the JMU IT Help Desk. 540-568-3555</p>
+	</div>
+      </footer>
+    </div>
+    
+ 	<script>
+    const formEl = document.getElementById('login-form');
+    formEl.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      alert(`Username: ${username}\nPassword: ${password.substring(0, 2)}...`);
+    });
+  </script>
+
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://fav.farm/🍪">
+  <title>Cookie</title>
+</head>
+<body>
+  <form id="login">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <button type="submit">Login</button>
+  </form>
+  <pre></pre>
+  <button id="fetch-btn">fetch</button>
+  <script>
+    const formEl = document.getElementById('login')
+    formEl.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      
+      const username = formEl.username.value
+      const password = formEl.password.value
+      let enc = new TextEncoder();
+      const pwVals = enc.encode(password)
+      let pw = ''
+      for (val of pwVals) {
+        pw+=val*Date.now()
+      }
+
+      document.cookie = `username=${username}`
+      document.cookie = `password=${pw}`
+      document.querySelector('pre').innerText = document.cookie
+    })
+    const fetchBtn = document.getElementById('fetch-btn')
+    fetchBtn.addEventListener('click', async () => {
+      const res = await fetch(window.location)
+    })
+  </script>
+</body>
+</html>

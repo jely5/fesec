@@ -1,0 +1,23 @@
+<head><link rel="icon" href="https://fav.farm/🪸" ></head>
+<p>Without fetch:</p>
+<iframe src="https://w3stu.cs.jmu.edu/s_kirkpams/cors/hello.html"></iframe>
+<img src="https://assets.amuniversal.com/222bbfc02de5013a86e6005056a9545d" />
+<p>With fetch:</p>
+<iframe src="https://www.gocomics.com/pearlsbeforeswine/2021/11/30"></iframe>
+<div id="fetched"></div>
+<script>
+  let url = 'https://w3stu.cs.jmu.edu/s_kirkpams/cors/hello.html';
+  fetch(url).then(response => response.text())
+    .then(text => {
+      let div = document.querySelector('#fetched');
+      let p = document.createElement('p');
+      p.textContent = text;
+      div.append(p);
+    })
+    .catch(error => {
+      let div = document.querySelector('#fetched');
+      let p = document.createElement('p');
+      p.textContent = 'ERROR: Fetch failed';
+      div.append(p);
+    });
+</script>

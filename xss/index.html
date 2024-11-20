@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="https://fav.farm/❌">
+</head>
+
+<body>
+
+  <script>
+    let name = 'world';
+    if (window.location.search.indexOf('name=') !== -1) {
+      const params = new URLSearchParams(window.location.search)
+      name = params.get('name')
+    }
+  </script>
+  Hello
+  <script>document.write(name)</script>!
+
+  Select your language:
+
+  <select>
+    <script>
+      let defaultLanguage = 'english';
+
+      if (document.location.href.indexOf("default=") !== -1) {
+        defaultLanguage = decodeURIComponent(document.location.href.substring(document.location.href.indexOf("default=") + 8));
+        document.write("<OPTION value=1>" + defaultLanguage + "</OPTION>");
+        if (defaultLanguage != 'english') {
+          document.write("<OPTION value=2>English</OPTION>");
+        } 
+      } else {
+        document.write("<OPTION value=1>English</OPTION>");
+      }
+
+
+    </script>
+  </select>
+</body>
+
+</html>
