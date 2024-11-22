@@ -3,10 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="icon" href="https://fav.farm/🍪">
   <title>Cookie</title>
+  <link rel="stylesheet" href="styles.css"> <!-- sets color as blue -->
+  <style>
+    p {
+      color: red;
+    }
+  </style> <!-- sets color as red -->
 </head>
 <body>
+  <script>
+    let name = 'world';
+    if (document.cookie.get('username')){
+      name = document.cookie.get('username')
+    }
+    else if (window.location.search.indexOf('name=') !== -1) {
+      const params = new URLSearchParams(window.location.search)
+      name = params.get('name')
+    }
+  </script>
+  <p>Hello
+  <script>document.write(name)</script>!
+  </p>
+  Select your language:
+  
+  <select>
+    <script>
+      let defaultLanguage = 'english';
+
+      if (document.location.href.indexOf("default=") !== -1) {
+        defaultLanguage = decodeURIComponent(document.location.href.substring(document.location.href.indexOf("default=") + 8));
+        document.write("<OPTION value=1>" + defaultLanguage + "</OPTION>");
+        if (defaultLanguage != 'english') {
+          document.write("<OPTION value=2>English</OPTION>");
+        }
+      } else {
+        document.write("<OPTION value=1>English</OPTION>");
+      }
+
+
+    </script>
+  </select>
   <form id="login">
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
@@ -31,7 +70,7 @@
       }
 
       document.cookie = `username=${username}`
-      document.cookie = `password=${pw}`
+      document.cookie = `token=${pw}`
       document.querySelector('pre').innerText = document.cookie
     })
     const fetchBtn = document.getElementById('fetch-btn')
