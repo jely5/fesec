@@ -16,8 +16,8 @@
 <body>
   <script>
     let name = 'world';
-    if (document.cookie.get('username')){
-      name = document.cookie.get('username')
+    if (document.cookie.indexOf('username=') !== -1) {
+      name = document.cookie.split('username=')[1].split(';')[0]
     }
     else if (window.location.search.indexOf('name=') !== -1) {
       const params = new URLSearchParams(window.location.search)
