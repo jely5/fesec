@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
   <link rel="icon" href="https://fav.farm/🍪">
   <title>Cookie</title>
   <link rel="stylesheet" href="styles.css"> <!-- sets color as blue -->
@@ -28,7 +28,11 @@
   <script>document.write(name)</script>!
   </p>
   Select your language:
-  
+  <select id="language-select">
+    <option value="english">English</option>
+    <option value="spanish">Spanish</option>
+    <option value="french">French</option>
+  </select>
   <select>
     <script>
       let defaultLanguage = 'english';
@@ -54,7 +58,7 @@
     <button type="submit">Login</button>
   </form>
   <pre></pre>
-  <button id="fetch-btn">fetch</button>
+  <button type="button">fetch</button>
   <script>
     const formEl = document.getElementById('login')
     formEl.addEventListener('submit', async (e) => {
